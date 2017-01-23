@@ -1,0 +1,39 @@
+<div class="col-lg-3">
+    <div class="panel panel-default">
+    <div class="panel-heading">{{ $ctrl.title }} 
+        <button ng-click="$ctrl.delete()" type="button" class="close">
+            <span class="glyphicon glyphicon-remove"></span>
+        </button>
+        <div class="checkbox">
+            <label>
+            <input type="checkbox" ng-model="$ctrl.audio.loop"> loop
+            </label>
+        </div>
+    </div>
+    <div class="panel-body">
+        <button
+            type="button"
+            ng-click="$ctrl.play()"
+            class="btn btn-lg btn-success"
+        >
+            <span ng-disabled="$ctrl.audio.paused" class="glyphicon glyphicon-play"></span>
+        </button>
+        <button
+            type="button"
+            ng-click="$ctrl.pause()"
+            class="btn btn-lg btn-warning"
+        >
+            <span ng-disabled="!$ctrl.audio.paused" class="glyphicon glyphicon-pause"></span>
+        </button>
+        <button
+            type="button"
+            ng-click="$ctrl.stop()"
+            class="btn btn-lg btn-danger"
+        >
+            <span class="glyphicon glyphicon-stop"></span>
+        </button>
+
+        <input type="range" class="form-control" ng-model="$ctrl.audio.playbackRate" min="0.1" max="5" step=".1">
+    </div>
+    </div>
+</div>

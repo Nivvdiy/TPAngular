@@ -1,0 +1,24 @@
+<form  ng-class="{ invalid: soundForm.$invalid && soundForm.$dirty }"
+    name="soundForm" novalidate ng-submit="$ctrl.submit(soundForm, $ctrl.sound)" class="well">
+
+    <div class="form-group">
+        <label for="url">Url</label>
+        <input ng-model="$ctrl.sound.url" 
+            name="url" 
+            required
+            id="url" type="text" class="form-control">
+        <p class="text-danger" 
+            ng-if="soundForm.url.$error.required && soundForm.url.$dirty">Obligatoire</p>
+    </div>
+
+    <div class="form-group">
+        <label for="title">Titre</label>
+        <input 
+            ng-model="$ctrl.sound.title"
+            name="title" 
+            id="title" type="text" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+</form>

@@ -1,0 +1,41 @@
+<form ng-class="{ invalid: userForm.$invalid && userForm.$dirty }" 
+    name="userForm" novalidate ng-submit="$ctrl.submit(userForm, $ctrl.user)" class="well">
+
+    <div class="form-group">
+        <label for="name">Nom</label>
+        <input ng-model="$ctrl.user.name" 
+            name="name" 
+            required
+            ng-minlength="4"
+            id="name" type="text" class="form-control">
+        <p class="text-danger" 
+            ng-if="userForm.name.$error.required && userForm.name.$dirty">Obligatoire</p>
+        <p class="text-danger" 
+            ng-if="userForm.name.$error.minlength && userForm.name.$dirty">Trop court</p>
+    </div>
+
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input 
+            ng-model="$ctrl.user.age"
+            name="age" 
+            id="age" type="number" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+            ng-model="$ctrl.user.email"
+            name="email" 
+            id="email" type="email" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <span uib-rating ng-model="$ctrl.user.rating" max="10"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+    <a type="button" ng-href="/users" class="btn">Annuler</a>
+
+</form>
